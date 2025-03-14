@@ -1,0 +1,208 @@
+/* 
+assignment and rubric: https://umich.instructure.com/courses/732502/assignments/2598014?module_item_id=4139045
+720: https://drive.google.com/file/d/1nSqJyJg--3azG5juM7nES_HHj39JR7_i/view
+1200: https://drive.google.com/file/d/1BEgMxTSLNrSAo_6m4v_VmeKU0JQnUjhW/view
+1500: https://drive.google.com/file/d/1pT9Gr63DwJXyk08fDCt16W9pDawzmUGD/view
+print: https://drive.google.com/file/d/1Dt7IuL7f6s4uJTQ9hk79ozt2GB4PjASn/view
+github page: https://nicklo0531.github.io/hw5_2025/flex.html#skip
+github repo: https://github.com/nicklo0531/hw5_2025 */
+
+/* Step 1: keyframes to create an animation */
+@keyframes logoAnimation {
+    /* start of the logo */
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    /* what it turns into */
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+/* Step 1: apply the animation to the logo */
+#logo {
+    /* 5 seconds to grow */
+    animation: logoAnimation 5s;
+}
+
+/* Step 2: edit the body element*/
+body {
+    /* use the Poppins font with serif as a backup */
+    font-family: "Poppins", serif;
+    /* use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1 */
+    background-image: url(../images/concrete_seamless.png);
+    background-color: #f1f1f1;
+}
+
+/* Step 3: edit the header tag using flex */
+header {
+    display: flex;
+    /* nav in the center and stacked */
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Step 4: edit the css for the nav_links class to use flex */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Step 5: style the links to make them remain the same color after visited */
+.nav_item a:visited {
+    /* initial color: blue */
+    color: #0000ff;
+}
+
+/* Step 6: style those header elements that are direct children of a card class */
+.card > header {
+    /* background color*/
+    background-color: #288088;
+    /* add border */
+    border: #45ADAD solid 2px;
+    /* add padding */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* add border radius */
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Step (extra check): style the card class to make the corners round */
+.card {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Step 7: style the card class */
+.card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+/* Step 8: style the pricing class */
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    justify-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* Step 9: style the image in the gallery class */
+.gallery img {
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Step 10: edit the gallery class */
+.gallery {
+    display: flex;
+    /* flex-direction: row-reverse; */
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+/* set media query for screen sizes larger than 900px */
+@media (min-width: 900px) {
+    /* Step 11: style the header to make them as left as possible*/
+    header {
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    /* Step 11: style the nav_links to make them as right as possible */
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+    }
+    /* Step 12: style the pricing class */
+    .pricing {
+        display: flex;
+        /* flex-wrap: wrap; */
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Step 12: style the card class */
+    .card {
+        display: flex;
+        flex-basis: 275px;
+    }
+
+    /* Step 13: modify the first header so it remains at the top even when we scroll down */
+    body>header:first-child {
+        position: sticky;
+        top: 0;
+    }
+}
+
+/* Step 14: turn logo animation off when reduced motion is selected in accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+@media print {
+    body {
+        /* Step 15: change the font on the body to Arial with a backup value of Helvetica */
+        font-family: Arial, Helvetica;
+        /* Step 16: set the background image to none */ 
+        background-image: none;
+        background-color: #f1f1f1;
+    }
+    
+    /* Step 17: make the nav and nav_links spaced around */ 
+    .nav_links {
+        display: flex;
+        justify-content: space-around;
+        /* gap: 150px; */
+        width: 100%;
+        flex-direction: row;
+        /* align-items: end; */
+        justify-content: center;
+    }
+    
+    /* Step 18: make the pricing elements align at the bottom */
+    .pricing {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-content: center;
+        /* justify-content: stretch; */
+        align-items: stretch;
+    }
+
+    /* Step 19: make the card element have a solid border 2px of #45ADDD and use flex-basis of 325px */ 
+    .card {
+        display: flex;
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+        flex-grow: 1;
+    }
+
+    /* Step 20: make gallery not visible */ 
+    .gallery {
+        display: none;
+    }
+
+    /* Step 21: add thumbs up */ 
+    .card ul li:nth-child(2)::after {
+        content: '\1F44D';
+    }
+}
+
