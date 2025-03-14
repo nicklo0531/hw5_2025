@@ -1,0 +1,42 @@
+@media print {
+    body {
+        /* Step 15: change the font on the body to Arial with a backup value of Helvetica */
+        font-family: Arial, Helvetica;
+        /* Step 16: set the background image to none */ 
+        background-image: none;
+        background-color: #f1f1f1;
+    }
+    
+    /* Step 17: make the nav and nav_links spaced around */ 
+    .nav_links {
+        display: flex;
+        justify-content: space-around;
+        /* gap: 150px; */
+        width: 100%;
+        flex-direction: row;
+        /* align-items: end; */
+        justify-content: center;
+    }
+    
+    /* Step 18: make the pricing elements align at the bottom */
+    .pricing {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-content: center;
+        /* justify-content: stretch; */
+        align-items: stretch;
+    }
+
+    /* Step 19: make the card element have a solid border 2px of #45ADDD and use flex-basis of 325px */ 
+    .card {
+        display: flex;
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+        flex-grow: 1;
+    }
+
+    /* Step 20: make gallery not visible */ 
+    .gallery {
+        display: none;
+    }

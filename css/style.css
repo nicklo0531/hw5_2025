@@ -48,6 +48,7 @@ header {
 .nav_links {
     display: flex;
     flex-direction: column;
+    /* justify-self: center; */
 }
 
 /* Step 5: style the links to make them remain the same color after visited */
@@ -78,24 +79,26 @@ header {
 
 /* Step 7: style the card class */
 .card {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     box-sizing: border-box;
     flex-basis: auto;
-    flex-grow: 1;
-    flex-shrink: 1;
+    /* flex-grow: 1;
+    flex-shrink: 1; */
+    width: 450px;
 }
 
 /* Step 8: style the pricing class */
 .pricing {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: stretch; */
+    align-items: center;
     justify-items: center;
-    padding-left: 100px;
-    padding-right: 100px;
+    /* padding-left: 100px;
+    padding-right: 100px; */
 }
 
 /* Step 9: style the image in the gallery class */
@@ -133,13 +136,12 @@ header {
         display: flex;
         /* flex-wrap: wrap; */
         flex-direction: row;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
     }
 
     /* Step 12: style the card class */
     .card {
-        display: flex;
         flex-basis: 275px;
     }
 
@@ -165,44 +167,36 @@ header {
         background-image: none;
         background-color: #f1f1f1;
     }
-    
+
     /* Step 17: make the nav and nav_links spaced around */ 
     .nav_links {
         display: flex;
-        justify-content: space-around;
-        /* gap: 150px; */
-        width: 100%;
         flex-direction: row;
-        /* align-items: end; */
         justify-content: center;
+        gap: 150px;
+        width: 100%;
     }
-    
+
     /* Step 18: make the pricing elements align at the bottom */
     .pricing {
         display: flex;
-        flex-wrap: nowrap;
         flex-direction: row;
-        align-content: center;
-        /* justify-content: stretch; */
-        align-items: stretch;
+        align-items: flex-end;
     }
 
     /* Step 19: make the card element have a solid border 2px of #45ADDD and use flex-basis of 325px */ 
     .card {
-        display: flex;
         border: solid 2px #45ADDD;
         flex-basis: 325px;
-        flex-grow: 1;
     }
 
     /* Step 20: make gallery not visible */ 
-    .gallery {
+    #gallery, .gallery {
         display: none;
     }
 
-    /* Step 21: add thumbs up */ 
-    .card ul li:nth-child(2)::after {
+    /* Step 21: Add the thumbs up entity as shown in the cards */
+    .card ul li:nth-of-type(2)::after {
         content: '\1F44D';
     }
 }
-
